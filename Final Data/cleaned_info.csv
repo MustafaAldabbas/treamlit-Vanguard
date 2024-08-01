@@ -1,0 +1,15 @@
+Column,Non-Null Count,Dtype
+client_id,321195,int64
+client_tenure_years,321195,float64
+client_tenure_months,321195,float64
+client_age,321195,float64
+gender,321195,object
+number_of_accounts,321195,float64
+balance,321195,float64
+calls_last_6_months,321195,float64
+logins_last_6_months,321195,float64
+variation,321195,object
+visitor_id,321195,object
+visit_id,321195,object
+process_step,321195,object
+date_time,321195,datetime64[ns]
