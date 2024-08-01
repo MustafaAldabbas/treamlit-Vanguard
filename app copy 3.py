@@ -126,11 +126,12 @@ def hypothesis_testing_page():
     st.write("* Error Rates: The Frequency of errors.")
     
     hypotheses = [
-        "Hypothesis 1",
+        "Hypothesis 1 ",
         "Hypothesis 2",
         "Hypothesis 3",
         "Hypothesis 4",
-        "Hypothesis 5"
+        "Hypothesis 5",
+    
     ]
     
     hypothesis_tabs = st.tabs(hypotheses)
@@ -171,7 +172,25 @@ def hypothesis_testing_page():
         fig, results_df, additional_stats = fn.analyze_logins_between_groupsst(df)
         st.pyplot(fig)
     
+    with hypothesis_tabs[5]:
+        if hasattr(fn, 'analyze_balance_confirmationst'):
+            st.write("### Clients with Higher Balances are More Likely to Confirm")
+            st.write("* Balance Analysis: Clients with higher balances confirm more often.")
+            st.write("* Conclusion: Higher balances are associated with higher confirmation rates.")
+            fig, results = fn.analyze_balance_confirmationst(df)
+            st.pyplot(fig)
+        else:
+            st.warning("Function `analyze_balance_confirmationst` is not implemented yet.")
     
+    with hypothesis_tabs[6]:
+        if hasattr(fn, 'analyze_age_confirmationst'):
+            st.write("### Older Clients are Less Likely to Confirm")
+            st.write("* Age Analysis: Older clients have lower confirmation rates.")
+            st.write("* Conclusion: There is a negative correlation between age and confirmation rates.")
+            fig, results = fn.analyze_age_confirmationst(df)
+            st.pyplot(fig)
+        else:
+            st.warning("Function `analyze_age_confirmationst` is not implemented yet.")
 
 def recommendations_page():
     st.title("Recommendations and Conclusion 📝")
@@ -185,12 +204,6 @@ def recommendations_page():
     st.subheader('Conclusion')
     st.write("* The new UI significantly improves user experience based on completion rates. However, the error rate in the new UI is higher.")
     st.write("* Recommendations: Continue refining the UI, conduct further experiments, and enhance data collection.")
-
-def download_report():
-    # Implementation of report generation
-    output = BytesIO()
-    # Generate report content here
-    return output
 
 def main():
     with st.sidebar:
