@@ -42,7 +42,7 @@ def home_page():
     st.markdown('<p class="big-font">Uncover the Power of UI Improvements!</p>', unsafe_allow_html=True)
     
     st.write("## Introduction")
-    st.info("As a newly employed data analyst in the Customer Experience (CX) team at Vanguard, you've been tasked with analyzing the results of an exciting digital experiment.")
+    st.info("As a newly employed data analyst in the Customer Experience (CX) team at Vanguard, I've been tasked with analyzing the results of an exciting digital experiment.")
     
     st.write("### The Digital Challenge")
     st.write("Vanguard believed that a more intuitive and modern User Interface (UI), coupled with timely in-context prompts, could make the online process smoother for clients. The critical question was: Would these changes encourage more clients to complete the process?")
@@ -58,11 +58,7 @@ def home_page():
     st.write("2. Digital Footprints (df_final_web_data)")
     st.write("3. Experiment Roster (df_final_experiment_clients)")
 
-def eda_page():
-    st.title("Exploratory Data Analysis 📊")
-    
-    st.write("## Raw Data Overview")
-    
+    st.write("## Data Overview")
     raw_data_tabs = st.tabs(["Demographic Data", "Old Website Data", "New Website Data", "Experiment Data", "Clean Data"])
     
     with raw_data_tabs[0]:
@@ -90,8 +86,11 @@ def eda_page():
         st.write("We applied general cleaning methods on the 4 datasets, merged them based on the client ID, and cleaned null values")
         st.dataframe(df.head())
     
-    eda_tabs = st.tabs(["Univariate Analysis", "Bivariate Analysis", "Experiment Sample Characteristics"])
     
+def eda_page():
+    st.title("Exploratory Data Analysis 📊")
+    eda_tabs = st.tabs(["Univariate Analysis", "Bivariate Analysis", "Experiment Sample Characteristics"])
+
     with eda_tabs[0]:
         st.write("## EDA Univariate Analysis")
         st.write("**1-Distribution of Age**")
