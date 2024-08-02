@@ -132,7 +132,7 @@ def hypothesis_testing_page():
         "Hypothesis 4",
         "Hypothesis 5"
     ]
-    
+
     hypothesis_tabs = st.tabs(hypotheses)
     
     with hypothesis_tabs[0]:
